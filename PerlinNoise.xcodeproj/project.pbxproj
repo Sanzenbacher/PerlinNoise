@@ -1,0 +1,439 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		999782FE1B52C3170027ACBF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 999782FD1B52C3170027ACBF /* main.m */; };
+		999783011B52C3170027ACBF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 999783001B52C3170027ACBF /* AppDelegate.m */; };
+		999783041B52C3170027ACBF /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 999783031B52C3170027ACBF /* ViewController.mm */; };
+		999783071B52C3170027ACBF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 999783051B52C3170027ACBF /* Main.storyboard */; };
+		999783091B52C3170027ACBF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 999783081B52C3170027ACBF /* Images.xcassets */; };
+		9997830C1B52C3170027ACBF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9997830A1B52C3170027ACBF /* LaunchScreen.xib */; };
+		999783181B52C3170027ACBF /* PerlinNoiseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 999783171B52C3170027ACBF /* PerlinNoiseTests.m */; };
+		999783261B52C3D70027ACBF /* PerlinNoiseGenerator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 999783241B52C3D70027ACBF /* PerlinNoiseGenerator.cpp */; };
+		999783281B52DBB30027ACBF /* PNG_transparency_demonstration_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 999783271B52DBB30027ACBF /* PNG_transparency_demonstration_1.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		999783121B52C3170027ACBF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 999782F01B52C3170027ACBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 999782F71B52C3170027ACBF;
+			remoteInfo = PerlinNoise;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		999782F81B52C3170027ACBF /* PerlinNoise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerlinNoise.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		999782FC1B52C3170027ACBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		999782FD1B52C3170027ACBF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		999782FF1B52C3170027ACBF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		999783001B52C3170027ACBF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		999783021B52C3170027ACBF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		999783031B52C3170027ACBF /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		999783061B52C3170027ACBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		999783081B52C3170027ACBF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9997830B1B52C3170027ACBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		999783111B52C3170027ACBF /* PerlinNoiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PerlinNoiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		999783161B52C3170027ACBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		999783171B52C3170027ACBF /* PerlinNoiseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PerlinNoiseTests.m; sourceTree = "<group>"; };
+		999783241B52C3D70027ACBF /* PerlinNoiseGenerator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PerlinNoiseGenerator.cpp; sourceTree = "<group>"; };
+		999783251B52C3D70027ACBF /* PerlinNoiseGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PerlinNoiseGenerator.h; sourceTree = "<group>"; };
+		999783271B52DBB30027ACBF /* PNG_transparency_demonstration_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PNG_transparency_demonstration_1.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		999782F51B52C3170027ACBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9997830E1B52C3170027ACBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		999782EF1B52C3170027ACBF = {
+			isa = PBXGroup;
+			children = (
+				999782FA1B52C3170027ACBF /* PerlinNoise */,
+				999783141B52C3170027ACBF /* PerlinNoiseTests */,
+				999782F91B52C3170027ACBF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		999782F91B52C3170027ACBF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				999782F81B52C3170027ACBF /* PerlinNoise.app */,
+				999783111B52C3170027ACBF /* PerlinNoiseTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		999782FA1B52C3170027ACBF /* PerlinNoise */ = {
+			isa = PBXGroup;
+			children = (
+				999782FF1B52C3170027ACBF /* AppDelegate.h */,
+				999783001B52C3170027ACBF /* AppDelegate.m */,
+				999783021B52C3170027ACBF /* ViewController.h */,
+				999783031B52C3170027ACBF /* ViewController.mm */,
+				999783051B52C3170027ACBF /* Main.storyboard */,
+				999783081B52C3170027ACBF /* Images.xcassets */,
+				9997830A1B52C3170027ACBF /* LaunchScreen.xib */,
+				999782FB1B52C3170027ACBF /* Supporting Files */,
+				999783241B52C3D70027ACBF /* PerlinNoiseGenerator.cpp */,
+				999783251B52C3D70027ACBF /* PerlinNoiseGenerator.h */,
+			);
+			path = PerlinNoise;
+			sourceTree = "<group>";
+		};
+		999782FB1B52C3170027ACBF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				999783271B52DBB30027ACBF /* PNG_transparency_demonstration_1.png */,
+				999782FC1B52C3170027ACBF /* Info.plist */,
+				999782FD1B52C3170027ACBF /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		999783141B52C3170027ACBF /* PerlinNoiseTests */ = {
+			isa = PBXGroup;
+			children = (
+				999783171B52C3170027ACBF /* PerlinNoiseTests.m */,
+				999783151B52C3170027ACBF /* Supporting Files */,
+			);
+			path = PerlinNoiseTests;
+			sourceTree = "<group>";
+		};
+		999783151B52C3170027ACBF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				999783161B52C3170027ACBF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		999782F71B52C3170027ACBF /* PerlinNoise */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9997831B1B52C3170027ACBF /* Build configuration list for PBXNativeTarget "PerlinNoise" */;
+			buildPhases = (
+				999782F41B52C3170027ACBF /* Sources */,
+				999782F51B52C3170027ACBF /* Frameworks */,
+				999782F61B52C3170027ACBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PerlinNoise;
+			productName = PerlinNoise;
+			productReference = 999782F81B52C3170027ACBF /* PerlinNoise.app */;
+			productType = "com.apple.product-type.application";
+		};
+		999783101B52C3170027ACBF /* PerlinNoiseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9997831E1B52C3170027ACBF /* Build configuration list for PBXNativeTarget "PerlinNoiseTests" */;
+			buildPhases = (
+				9997830D1B52C3170027ACBF /* Sources */,
+				9997830E1B52C3170027ACBF /* Frameworks */,
+				9997830F1B52C3170027ACBF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				999783131B52C3170027ACBF /* PBXTargetDependency */,
+			);
+			name = PerlinNoiseTests;
+			productName = PerlinNoiseTests;
+			productReference = 999783111B52C3170027ACBF /* PerlinNoiseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		999782F01B52C3170027ACBF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = "Sascha Sanzenbacher";
+				TargetAttributes = {
+					999782F71B52C3170027ACBF = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					999783101B52C3170027ACBF = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 999782F71B52C3170027ACBF;
+					};
+				};
+			};
+			buildConfigurationList = 999782F31B52C3170027ACBF /* Build configuration list for PBXProject "PerlinNoise" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 999782EF1B52C3170027ACBF;
+			productRefGroup = 999782F91B52C3170027ACBF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				999782F71B52C3170027ACBF /* PerlinNoise */,
+				999783101B52C3170027ACBF /* PerlinNoiseTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		999782F61B52C3170027ACBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				999783071B52C3170027ACBF /* Main.storyboard in Resources */,
+				9997830C1B52C3170027ACBF /* LaunchScreen.xib in Resources */,
+				999783091B52C3170027ACBF /* Images.xcassets in Resources */,
+				999783281B52DBB30027ACBF /* PNG_transparency_demonstration_1.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9997830F1B52C3170027ACBF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		999782F41B52C3170027ACBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				999783261B52C3D70027ACBF /* PerlinNoiseGenerator.cpp in Sources */,
+				999783041B52C3170027ACBF /* ViewController.mm in Sources */,
+				999783011B52C3170027ACBF /* AppDelegate.m in Sources */,
+				999782FE1B52C3170027ACBF /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9997830D1B52C3170027ACBF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				999783181B52C3170027ACBF /* PerlinNoiseTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		999783131B52C3170027ACBF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 999782F71B52C3170027ACBF /* PerlinNoise */;
+			targetProxy = 999783121B52C3170027ACBF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		999783051B52C3170027ACBF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				999783061B52C3170027ACBF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9997830A1B52C3170027ACBF /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9997830B1B52C3170027ACBF /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		999783191B52C3170027ACBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9997831A1B52C3170027ACBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9997831C1B52C3170027ACBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PerlinNoise/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		9997831D1B52C3170027ACBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PerlinNoise/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		9997831F1B52C3170027ACBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PerlinNoiseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerlinNoise.app/PerlinNoise";
+			};
+			name = Debug;
+		};
+		999783201B52C3170027ACBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PerlinNoiseTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PerlinNoise.app/PerlinNoise";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		999782F31B52C3170027ACBF /* Build configuration list for PBXProject "PerlinNoise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				999783191B52C3170027ACBF /* Debug */,
+				9997831A1B52C3170027ACBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9997831B1B52C3170027ACBF /* Build configuration list for PBXNativeTarget "PerlinNoise" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9997831C1B52C3170027ACBF /* Debug */,
+				9997831D1B52C3170027ACBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9997831E1B52C3170027ACBF /* Build configuration list for PBXNativeTarget "PerlinNoiseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9997831F1B52C3170027ACBF /* Debug */,
+				999783201B52C3170027ACBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 999782F01B52C3170027ACBF /* Project object */;
+}
