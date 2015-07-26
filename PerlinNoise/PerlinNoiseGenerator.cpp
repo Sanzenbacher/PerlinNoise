@@ -7,6 +7,8 @@
 //
 
 #include "PerlinNoiseGenerator.h"
+#include <math.h>
+#include <algorithm>
 
 float Gradient[X][Y][2];
 
@@ -45,16 +47,64 @@ void vector_im_einheitszkreis()
     //gradient_ausgeben();
 }
 
+float gradient_berechnen(float x, float y, unsigned hoehe, unsigned breite)
+{
+    unsigned x1, x2, y1, y2;
+    float xgrad, ygrad;
+    xgrad= (32.0 / breite) * x;
+    ygrad= (32.0 / breite) * y;
+    
+    x1 = floor(xgrad);
+    x2 = ceil(xgrad);
+    y1 = floor(ygrad);
+    y2 = ceil(ygrad);
+    
+    float v1x, v2x, v3x, v4x, v1y, v2y, v3y, v4y;
+    
+    v1x = xgrad - x1;
+    v1y = ygrad - y1;
+    
+    v2x = xgrad - x2;
+    v2y = ygrad - y1;
+    
+    v3x = xgrad - x1;
+    v3y = ygrad - y2;
+    
+    v4x = xgrad - x2;
+    v4y = ygrad - y2;
+    
+    
+    float s1, s2, s3, s4;
+    
+    s1 = v1x * Gradient[x1][y1][0]+ v1y * Gradient[x1][y1][1];
+    s2 = v2x * Gradient[x2][y1][0]+ v2y * Gradient[x2][y1][1];
+    s3 = v3x * Gradient[x1][y2][0]+ v3y * Gradient[x1][y2][1];
+    s4 = v4x * Gradient[x2][y2][0]+ v4y * Gradient[x2][y2][1];
+    
+    float d1, d2;
+    
+    d1 = xgrad - x1;
+    d2 = ygrad - y1;
+    
+    float si, si2;
+    
+    si  = d1*s1 + (1-d1)*s2;
+    si2 = d1*s4 + (1-d1)*s3;
+    
+    return d2*si + (1-d2)*si2;
+    
+}
+
 char* gradient_bild(unsigned hoehe, unsigned breite)
 {
     char* bild = new char[hoehe*breite*4]; //RGB    32 bpp, 8 bpc, kCGImageAlphaNoneSkipFirst
-    for(int x=0;x<X;x++)
+    for(int x=0;x<breite;x++)
     {
-        for(int y=0;y<Y;y++)
+        for(int y=0;y<hoehe;y++)
         {
             bild[(x+breite*y)*4]=255;
-            bild[(x+breite*y)*4+1]=(char)(Gradient[x][y][0]*255.0);
-            bild[(x+breite*y)*4+2]=0;
+            bild[(x+breite*y)*4+1]=0;//1.0/ std::max<float>(gradient_berechnen(x, y, hoehe, breite),0.00001)*32;
+            bild[(x+breite*y)*4+2]=gradient_berechnen(x, y, hoehe, breite)*255;
             bild[(x+breite*y)*4+3]=0;
         }
     }

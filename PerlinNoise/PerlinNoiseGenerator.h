@@ -14,8 +14,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define X 1024
-#define Y 1024
+#define X 32
+#define Y 32
 
 extern float Gradient[X][Y][2];
 
