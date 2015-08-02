@@ -1,6 +1,3 @@
-
-PerlinNoise.xcodeproj/project.xcworkspace/xcuserdata/*
-
-PerlinNoise.xcodeproj/xcuserdata/*
-*.obj
+Win32PerlinNoise/x64/Debug/
+*.sdf
 *.opensdf

@@ -10,6 +10,7 @@
 #include <math.h>
 #include <algorithm>
 
+
 float Gradient[Gradientsize_X][Gradientsize_Y][2];
 
 void gradient_ausgeben()
