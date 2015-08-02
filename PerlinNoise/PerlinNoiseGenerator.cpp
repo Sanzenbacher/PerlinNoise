@@ -10,13 +10,13 @@
 #include <math.h>
 #include <algorithm>
 
-float Gradient[X][Y][2];
+float Gradient[Gradientsize_X][Gradientsize_Y][2];
 
 void gradient_ausgeben()
 {
-    for(int x=0;x<X;x++)
+    for(int x=0;x<Gradientsize_X;x++)
     {
-        for(int y=0;y<Y;y++)
+        for(int y=0;y<Gradientsize_Y;y++)
         {
             printf("(%f,%f)",Gradient[x][y][0], Gradient[x][y][1]);
             //printf("%f ", sqrt(pow(Gradient[x][y][0], 2) + pow(Gradient[x][y][1], 2)));
@@ -32,9 +32,9 @@ void vector_im_einheitszkreis()
     
     float zufallszahl1 ,zufallszahl2, laenge;
     
-    for(int x=0;x<X;x++)
+    for(int x=0;x<Gradientsize_X;x++)
     {
-        for(int y=0;y<Y;y++)
+        for(int y=0;y<Gradientsize_Y;y++)
         {
             zufallszahl1 = (float)rand();
             zufallszahl2 = (float)rand();
@@ -51,8 +51,8 @@ float gradient_berechnen(float x, float y, unsigned hoehe, unsigned breite)
 {
     unsigned x1, x2, y1, y2;
     float xgrad, ygrad;
-    xgrad= (32.0 / breite) * x;
-    ygrad= (32.0 / breite) * y;
+    xgrad= x / ((float)breite / (float)Gradientsize_X);
+    ygrad= y / ((float)hoehe / (float)Gradientsize_Y );
     
     x1 = floor(xgrad);
     x2 = ceil(xgrad);
@@ -60,7 +60,9 @@ float gradient_berechnen(float x, float y, unsigned hoehe, unsigned breite)
     y2 = ceil(ygrad);
     
     float v1x, v2x, v3x, v4x, v1y, v2y, v3y, v4y;
-    
+
+	if ((x > 100) && (y > 100)) {
+		v1x = 1; }
     v1x = xgrad - x1;
     v1y = ygrad - y1;
     
@@ -102,7 +104,7 @@ char* gradient_bild(unsigned hoehe, unsigned breite)
     {
         for(int y=0;y<hoehe;y++)
         {
-            bild[(x+breite*y)*4]=255;
+            bild[(x+breite*y)*4]=0;
             bild[(x+breite*y)*4+1]=0;//1.0/ std::max<float>(gradient_berechnen(x, y, hoehe, breite),0.00001)*32;
             bild[(x+breite*y)*4+2]=gradient_berechnen(x, y, hoehe, breite)*255;
             bild[(x+breite*y)*4+3]=0;

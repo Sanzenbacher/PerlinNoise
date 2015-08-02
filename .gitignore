@@ -2,3 +2,5 @@
 PerlinNoise.xcodeproj/project.xcworkspace/xcuserdata/*
 
 PerlinNoise.xcodeproj/xcuserdata/*
+*.obj
+*.opensdf

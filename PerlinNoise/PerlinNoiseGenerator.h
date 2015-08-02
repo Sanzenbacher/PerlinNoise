@@ -14,10 +14,10 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define X 32
-#define Y 32
+#define Gradientsize_X 32
+#define Gradientsize_Y 32
 
-extern float Gradient[X][Y][2];
+extern float Gradient[Gradientsize_X][Gradientsize_Y][2];
 
 void gradient_ausgeben();
 
