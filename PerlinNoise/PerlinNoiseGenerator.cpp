@@ -55,10 +55,10 @@ float gradient_berechnen(float x, float y, unsigned hoehe, unsigned breite)
     xgrad= x / ((float)breite / (float)Gradientsize_X);
     ygrad= y / ((float)hoehe / (float)Gradientsize_Y );
     
-    x1 = floor(xgrad);
-    x2 = ceil(xgrad);
-    y1 = floor(ygrad);
-    y2 = ceil(ygrad);
+    x1 = (unsigned)floor(xgrad);
+    x2 = (unsigned)ceil(xgrad);
+    y1 = (unsigned)floor(ygrad);
+    y2 = (unsigned)ceil(ygrad);
     
     float v1x, v2x, v3x, v4x, v1y, v2y, v3y, v4y;
 
@@ -107,7 +107,7 @@ char* gradient_bild(unsigned hoehe, unsigned breite)
         {
             bild[(x+breite*y)*4]=0;
             bild[(x+breite*y)*4+1]=0;//1.0/ std::max<float>(gradient_berechnen(x, y, hoehe, breite),0.00001)*32;
-            bild[(x+breite*y)*4+2]=gradient_berechnen(x, y, hoehe, breite)*255;
+            bild[(x+breite*y)*4+2]=(char)gradient_berechnen((float)x, (float)y, hoehe, breite)*255;
             bild[(x+breite*y)*4+3]=0;
         }
     }

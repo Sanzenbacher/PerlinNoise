@@ -33,6 +33,7 @@ global_variable int BitmapWidth;
 global_variable int BitmapHeight;
 global_variable int BytesPerPixel = 4;
 
+/*
 internal void
 RenderWeirdGradient(int BlueOffset, int GreenOffset)
 {
@@ -42,7 +43,7 @@ RenderWeirdGradient(int BlueOffset, int GreenOffset)
 	int Pitch = Width*BytesPerPixel;
 	uint8 *Row = (uint8 *)BitmapMemory;
 	for (int Y = 0;
-	Y < BitmapHeight;
+	Y < Height;
 		++Y)
 	{
 		uint32 *Pixel = (uint32 *)Row;
@@ -50,8 +51,8 @@ RenderWeirdGradient(int BlueOffset, int GreenOffset)
 		X < BitmapWidth;
 			++X)
 		{
-			uint8 Blue = (X + BlueOffset);
-			uint8 Green = (Y + GreenOffset);
+			uint8 Blue = (uint8)(X + BlueOffset);
+			uint8 Green =(uint8)(Y + GreenOffset);
 
 			*Pixel++ = ((Green << 8) | Blue);
 		}
@@ -59,7 +60,7 @@ RenderWeirdGradient(int BlueOffset, int GreenOffset)
 		Row += Pitch;
 	}
 }
-
+*/
 internal void
 Win32ResizeDIBSection(int Width, int Height)
 {
@@ -93,15 +94,16 @@ Win32ResizeDIBSection(int Width, int Height)
 internal void
 Win32UpdateWindow(HDC DeviceContext, RECT *ClientRect, int X, int Y, int Width, int Height)
 {
-	int WindowWidth = ClientRect->right - ClientRect->left;
-	int WindowHeight = ClientRect->bottom - ClientRect->top;
+	int WindowWidth = Width; int WindowHeight = Height;
+	WindowWidth = ClientRect->right - ClientRect->left;
+	WindowHeight = ClientRect->bottom - ClientRect->top;
 	StretchDIBits(DeviceContext,
 		/*
 		X, Y, Width, Height,
 		X, Y, Width, Height,
 		*/
-		0, 0, BitmapWidth, BitmapHeight,
-		0, 0, WindowWidth, WindowHeight,
+		X, Y, BitmapWidth, BitmapHeight,
+		X, Y, WindowWidth, WindowHeight,
 		BitmapMemory,
 		&BitmapInfo,
 		DIB_RGB_COLORS, SRCCOPY);
@@ -175,6 +177,9 @@ WinMain(HINSTANCE Instance,
 	LPSTR CommandLine,
 	int ShowCode)
 {
+	if (ShowCode){};
+	if (CommandLine){};
+	if (PrevInstance){};
 	WNDCLASSA WindowClass = {};
 
 	// TODO(casey): Check if HREDRAW/VREDRAW/OWNDC still matter
