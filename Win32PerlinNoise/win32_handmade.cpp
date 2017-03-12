@@ -1,7 +1,6 @@
 #include <windows.h>
 #include <stdint.h>
 #include "../PerlinNoise/PerlinNoiseGenerator.h"
-//test
 #define internal static 
 #define local_persist static 
 #define global_variable static
