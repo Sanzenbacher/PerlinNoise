@@ -101,9 +101,9 @@ float gradient_berechnen(float x, float y, unsigned hoehe, unsigned breite)
 char* gradient_bild(unsigned hoehe, unsigned breite)
 {
     char* bild = new char[hoehe*breite*4]; //RGB    32 bpp, 8 bpc, kCGImageAlphaNoneSkipFirst
-    for(int x=0;x<breite;x++)
+    for(int x=0;x<(int)breite;x++)
     {
-        for(int y=0;y<hoehe;y++)
+        for(int y=0;y<(int)hoehe;y++)
         {
             bild[(x+breite*y)*4]=0;
             bild[(x+breite*y)*4+1]=0;//1.0/ std::max<float>(gradient_berechnen(x, y, hoehe, breite),0.00001)*32;
