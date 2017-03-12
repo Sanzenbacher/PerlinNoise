@@ -82,9 +82,6 @@ Win32ResizeDIBSection(int Width, int Height)
 	BitmapInfo.bmiHeader.biBitCount = 32;
 	BitmapInfo.bmiHeader.biCompression = BI_RGB;
 
-	// NOTE(casey): Thank you to Chris Hecker of Spy Party fame
-	// for clarifying the deal with StretchDIBits and BitBlt!
-	// No more DC for us.
 	int BitmapMemorySize = (BitmapWidth*BitmapHeight)*BytesPerPixel;
 	BitmapMemory = VirtualAlloc(0, BitmapMemorySize, MEM_COMMIT, PAGE_READWRITE);
 }
