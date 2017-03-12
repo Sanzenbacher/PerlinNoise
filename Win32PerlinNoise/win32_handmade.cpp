@@ -24,7 +24,6 @@ typedef uint16_t uint16;
 typedef uint32_t uint32;
 typedef uint64_t uint64;
 
-// TODO(casey): This is a global for now.
 global_variable bool Running;
 
 global_variable BITMAPINFO BitmapInfo;
@@ -61,6 +60,7 @@ RenderWeirdGradient(int BlueOffset, int GreenOffset)
 	}
 }
 */
+
 internal void
 Win32ResizeDIBSection(int Width, int Height)
 {
