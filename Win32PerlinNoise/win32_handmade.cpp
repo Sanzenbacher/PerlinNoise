@@ -87,8 +87,6 @@ Win32ResizeDIBSection(int Width, int Height)
 	// No more DC for us.
 	int BitmapMemorySize = (BitmapWidth*BitmapHeight)*BytesPerPixel;
 	BitmapMemory = VirtualAlloc(0, BitmapMemorySize, MEM_COMMIT, PAGE_READWRITE);
-
-	// TODO(casey): Probably clear this to black
 }
 
 internal void
