@@ -23,44 +23,17 @@ global_variable int BitmapWidth;
 global_variable int BitmapHeight;
 global_variable int BytesPerPixel = 4;
 
-/*
-internal void
-RenderWeirdGradient(int BlueOffset, int GreenOffset)
-{
-	int Width = BitmapWidth;
-	int Height = BitmapHeight;
-
-	int Pitch = Width*BytesPerPixel;
-	uint8 *Row = (uint8 *)BitmapMemory;
-	for (int Y = 0;
-	Y < Height;
-		++Y)
-	{
-		uint32 *Pixel = (uint32 *)Row;
-		for (int X = 0;
-		X < BitmapWidth;
-			++X)
-		{
-			uint8 Blue = (uint8)(X + BlueOffset);
-			uint8 Green =(uint8)(Y + GreenOffset);
-
-			*Pixel++ = ((Green << 8) | Blue);
-		}
-
-		Row += Pitch;
-	}
-}
-*/
 
 internal void
 Win32ResizeDIBSection(int Width, int Height)
 {
-	// TODO(casey): Bulletproof this.
-	// Maybe don't free first, free after, then free first if that fails.
-
 	if (BitmapMemory)
 	{
 		VirtualFree(BitmapMemory, 0, MEM_RELEASE);
+	}
+	else
+	{
+		BitmapMemory = new char[Width*Height*4]; //RGB    32 bpp, 8 bpc, kCGImageAlphaNoneSkipFirst
 	}
 
 	BitmapWidth = Width;
@@ -75,24 +48,24 @@ Win32ResizeDIBSection(int Width, int Height)
 
 	int BitmapMemorySize = (BitmapWidth*BitmapHeight)*BytesPerPixel;
 	BitmapMemory = VirtualAlloc(0, BitmapMemorySize, MEM_COMMIT, PAGE_READWRITE);
+	gradient_bild((unsigned char*)BitmapMemory, BitmapHeight, BitmapWidth); //Bitmap "malen"
 }
 
 internal void
-Win32UpdateWindow(HDC DeviceContext, RECT *ClientRect, int X, int Y, int Width, int Height)
+Win32UpdateWindow(HDC Ziel_hdc, RECT *ClientRect, int X, int Y, int Width, int Height)
 {
 	int WindowWidth = Width; int WindowHeight = Height;
 	WindowWidth = ClientRect->right - ClientRect->left;
 	WindowHeight = ClientRect->bottom - ClientRect->top;
-	StretchDIBits(DeviceContext,
-		/*
-		X, Y, Width, Height,
-		X, Y, Width, Height,
-		*/
+	StretchDIBits(Ziel_hdc,
+		/* X, Y, Width, Height, ->Dest=DeviceContext
+		   X, Y, Width, Height, ->Src 	*/
 		X, Y, BitmapWidth, BitmapHeight,
 		X, Y, WindowWidth, WindowHeight,
-		BitmapMemory,
-		&BitmapInfo,
-		DIB_RGB_COLORS, SRCCOPY);
+		BitmapMemory, /* Pointer zu Bilddaten in form eines Arrays in Bytes*/
+		&BitmapInfo,  /* Point zur Beschreibung der DIB als BITMAPINFO-Struktur*/
+		DIB_RGB_COLORS, /*RGB Daten sind im Array gespeichert*/
+		SRCCOPY); /*Blitting-Modus*/
 }
 
 LRESULT CALLBACK
@@ -102,6 +75,9 @@ Win32MainWindowCallback(HWND Window,
 	LPARAM LParam)
 {
 	LRESULT Result = 0;
+
+	PAINTSTRUCT Paint;
+	HDC DeviceContext;
 
 	switch (Message)
 	{
@@ -133,8 +109,7 @@ Win32MainWindowCallback(HWND Window,
 
 	case WM_PAINT:
 	{
-		PAINTSTRUCT Paint;
-		HDC DeviceContext = BeginPaint(Window, &Paint);
+		DeviceContext = BeginPaint(Window, &Paint);
 		int X = Paint.rcPaint.left;
 		int Y = Paint.rcPaint.top;
 		int Width = Paint.rcPaint.right - Paint.rcPaint.left;
@@ -180,7 +155,7 @@ WinMain(HINSTANCE Instance,
 			CreateWindowExA(
 				0,
 				WindowClass.lpszClassName,
-				"Handmade Hero",
+				"Perlin Noise 12.03.2017",
 				WS_OVERLAPPEDWINDOW | WS_VISIBLE,
 				CW_USEDEFAULT,
 				CW_USEDEFAULT,
@@ -192,8 +167,8 @@ WinMain(HINSTANCE Instance,
 				0);
 		if (Window)
 		{
-			vector_im_einheitszkreis();
-
+			vector_im_einheitszkreis(); //Zufallszahlen generieren
+			gradient_bild((unsigned char*)BitmapMemory, BitmapHeight, BitmapWidth); //Bitmap "malen"
 			Running = true;
 
 			while (Running)
@@ -208,21 +183,7 @@ WinMain(HINSTANCE Instance,
 
 					TranslateMessage(&Message);
 					DispatchMessageA(&Message);
-
-					BitmapMemory = gradient_bild(BitmapHeight, BitmapWidth);
-
 				}
-
-				
-
-				HDC DeviceContext = GetDC(Window);
-				RECT ClientRect;
-				GetClientRect(Window, &ClientRect);
-				int WindowWidth = ClientRect.right - ClientRect.left;
-				int WindowHeight = ClientRect.bottom - ClientRect.top;
-				Win32UpdateWindow(DeviceContext, &ClientRect, 0, 0, WindowWidth, WindowHeight);
-				ReleaseDC(Window, DeviceContext);
-
 			}
 		}
 		else

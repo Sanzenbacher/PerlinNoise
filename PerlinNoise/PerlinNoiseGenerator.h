@@ -23,6 +23,6 @@ void gradient_ausgeben();
 
 void vector_im_einheitszkreis();
 
-char* gradient_bild(unsigned hoehe, unsigned breite);
+void gradient_bild(unsigned char* bild, unsigned hoehe, unsigned breite);
 
 #endif /* defined(__PerlinNoise__PerlinNoiseGenerator__) */

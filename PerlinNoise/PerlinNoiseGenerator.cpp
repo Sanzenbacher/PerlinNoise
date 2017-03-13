@@ -98,9 +98,25 @@ float gradient_berechnen(float x, float y, unsigned hoehe, unsigned breite)
     
 }
 
-char* gradient_bild(unsigned hoehe, unsigned breite)
+void gradient_bild(unsigned char* bild, unsigned hoehe, unsigned breite)
 {
-    char* bild = new char[hoehe*breite*4]; //RGB    32 bpp, 8 bpc, kCGImageAlphaNoneSkipFirst
+    for (int x=0;x<(int)(breite*hoehe);x++)
+    {
+            bild[x*4  ]=128; //B
+            bild[x*4+1]=128; //G
+            bild[x*4+2]=128; //R
+            bild[x*4+3]=255; //Alpha
+    };
+
+	/*{
+        bild[0]=128; //B
+        bild[1]=20 ;  //G
+        bild[2]=230; //R
+        bild[3]=99 ;  //Alpha
+        
+    };*/
+    //RGB    32 bpp, 8 bpc, kCGImageAlphaNoneSkipFirst
+    /*
     for(int x=0;x<(int)breite;x++)
     {
         for(int y=0;y<(int)hoehe;y++)
@@ -111,5 +127,5 @@ char* gradient_bild(unsigned hoehe, unsigned breite)
             bild[(x+breite*y)*4+3]=0;
         }
     }
-    return bild;
+    */
 }
